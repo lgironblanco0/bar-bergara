@@ -3,7 +3,6 @@
 
 
 
-const language=document.querySelector('#language');if(language){const saved=localStorage.getItem('bergara-language')||'es';language.value=saved;const updateLanguage=()=>{const value=language.value;document.documentElement.lang=value;document.querySelectorAll('[data-es]').forEach(el=>el.textContent=el.dataset[value]);localStorage.setItem('bergara-language',value)};language.addEventListener('change',updateLanguage);updateLanguage()}
 const language=document.querySelector('#language');
 const ui={es:['Carta','El bar','Visítanos','Pinchos calientes','Pinchos fríos','Postres caseros','Vinos y cavas'],en:['Menu','The bar','Visit us','Hot pintxos','Cold pintxos','Homemade desserts','Wines & cavas'],eu:['Karta','Taberna','Bisita gaitzazu','Pintxo beroak','Pintxo hotzak','Etxeko postreak','Ardoak eta cavak'],fr:['Carte','Le bar','Nous trouver','Pintxos chauds','Pintxos froids','Desserts maison','Vins & cavas']};
 function translate(key){const t=ui[key];document.documentElement.lang=key;const nav=document.querySelectorAll('nav>a:not(.nav-cta)');nav.forEach((el,i)=>el.textContent=t[i]);document.querySelectorAll('.tabs button').forEach((el,i)=>el.textContent=t[i+3]);localStorage.setItem('bergara-language',key)}
