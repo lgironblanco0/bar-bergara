@@ -3,3 +3,5 @@
 if(lang){lang.value=localStorage.getItem('bergara-lang')||'es';lang.onchange=()=>setLanguage(lang.value);setLanguage(lang.value)}
 
 
+
+const language=document.querySelector('#language');if(language){const saved=localStorage.getItem('bergara-language')||'es';language.value=saved;const updateLanguage=()=>{const value=language.value;document.documentElement.lang=value;document.querySelectorAll('[data-es]').forEach(el=>el.textContent=el.dataset[value]);localStorage.setItem('bergara-language',value)};language.addEventListener('change',updateLanguage);updateLanguage()}
